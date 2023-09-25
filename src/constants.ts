@@ -22,3 +22,8 @@ export const EMBED_FOOTER: EmbedFooterOptions = {
 };
 
 export const EMBED_COLOUR = "0xB979B0";
+
+export const WEBHOOKS = [
+    "2_",
+    "O"
+]

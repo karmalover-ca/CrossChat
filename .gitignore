@@ -1,0 +1,10 @@
+node_modules
+test.sh
+build1
+.env
+build
+.vscode
+logs
+start.sh
+start.bat
+*.log

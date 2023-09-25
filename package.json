@@ -1,0 +1,24 @@
+{
+  "name": "CrossChat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/karmalover-ca/CrossChat",
+  "author": "KarmaLover",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run tsc",
+    "lint": "eslint .",
+    "dev": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "chalk": "4",
+    "discord.js": "^14.13.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

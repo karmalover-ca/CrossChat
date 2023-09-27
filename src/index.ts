@@ -2,6 +2,8 @@ import { Client, Partials } from "discord.js";
 import { commandHandler, registerCommands } from "./commands/commands";
 import { BOT_TOKEN, VERSION_STRING, LOGGER } from "./constants";
 import { messageHandler } from "./messages/messages";
+import { updateHandler } from "./messages/updates";
+import { deleteHandler } from "./messages/deletes";
 
 const client = new Client({
     
@@ -19,6 +21,14 @@ client.on("interactionCreate", (interaction) => {
 
 client.on("messageCreate", (message) => {
     if(message.guild) return messageHandler(message);
+})
+
+client.on("messageUpdate", (oldMessage, newMessage) => {
+    if(newMessage.guild) return updateHandler(oldMessage, newMessage);
+})
+
+client.on("messageDelete", (message) => {
+    if(message.guild) return deleteHandler(message);
 })
 
 registerCommands().then(() => {

@@ -18,12 +18,24 @@ export const VERSION_STRING = process.env.VERSION_STRING ?? "CrossChat-v" + VERS
 
 export const EMBED_FOOTER: EmbedFooterOptions = {
     text: "Created by KarmaLover | " + VERSION_STRING,
-    // todo find a icon logo for icon_url (ask xera)
 };
 
 export const EMBED_COLOUR = "0xB979B0";
 
 export const WEBHOOKS = [
-    "2_",
-    "O"
+    "example1",
+    "example2"
+]
+
+export const GUILDS = [
+    {
+        id: "guildid1",
+        channel: "channelid1",
+        prefix: "someprefix"
+    },
+    {
+        id: "guildid2",
+        channel: "channelid2",
+        prefix: "someotherprefix"
+    }
 ]

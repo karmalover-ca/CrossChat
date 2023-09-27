@@ -11,8 +11,6 @@ const commands: BaseCommand[] = [
     new PingCommand()
 ];
 
-const validationRegex = /^[-_\p{L}\p{N}\p{sc=Deva}\p{sc=Thai}]{1,32}$/u;
-
 const registerCommands = () => {
 
     if (IS_PRODUCTION) {

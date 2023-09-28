@@ -16,6 +16,8 @@ export const VERSION = process.env.VERSION ?? "0.0.0";
 
 export const VERSION_STRING = process.env.VERSION_STRING ?? "CrossChat-v" + VERSION;
 
+export const ICON_URL = process.env.ICON_URL ?? "https://karmalover.ca/logo.png";
+
 export const EMBED_FOOTER: EmbedFooterOptions = {
     text: "Created by KarmaLover | " + VERSION_STRING,
 };
@@ -23,19 +25,19 @@ export const EMBED_FOOTER: EmbedFooterOptions = {
 export const EMBED_COLOUR = "0xB979B0";
 
 export const WEBHOOKS = [
-    "example1",
-    "example2"
+    "example",
+    "exmaple"
 ]
 
 export const GUILDS = [
     {
-        id: "guildid1",
-        channel: "channelid1",
-        prefix: "someprefix"
+        id: "example",
+        channel: "example",
+        prefix: "uuw"
     },
     {
-        id: "guildid2",
-        channel: "channelid2",
-        prefix: "someotherprefix"
+        id: "exape",
+        channel: "erample",
+        prefix: "rara"
     }
 ]

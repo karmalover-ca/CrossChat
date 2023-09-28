@@ -1,6 +1,6 @@
-import { Client, Partials } from "discord.js";
+import { Client, Partials, WebhookClient } from "discord.js";
 import { commandHandler, registerCommands } from "./commands/commands";
-import { BOT_TOKEN, VERSION_STRING, LOGGER } from "./constants";
+import { BOT_TOKEN, VERSION_STRING, LOGGER, WEBHOOKS, ICON_URL } from "./constants";
 import { messageHandler } from "./messages/messages";
 import { updateHandler } from "./messages/updates";
 import { deleteHandler } from "./messages/deletes";
@@ -13,6 +13,14 @@ const client = new Client({
 
 client.on("ready", () => {
     LOGGER.info(VERSION_STRING + " online!");
+    WEBHOOKS.forEach(async function (webhook) {
+        const webhookClient = new WebhookClient({ url: webhook });
+        webhookClient.send({
+            username: "CrossChat",
+            avatarURL: ICON_URL,
+            content: "Bot Ready - Cross Server system operational!"
+        });
+    });
 });
 
 client.on("interactionCreate", (interaction) => {

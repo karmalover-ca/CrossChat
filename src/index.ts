@@ -18,7 +18,7 @@ client.on("ready", () => {
         webhookClient.send({
             username: "CrossChat",
             avatarURL: ICON_URL,
-            content: "Bot Ready - Cross Server system operational!"
+            content: "Bot Ready - Cross Server system operational!",
         });
     });
 });

@@ -4,7 +4,7 @@ import { ConsoleLogger, FileLogger, Logger } from "./logger";
 export const IS_PRODUCTION: boolean = process.env.IS_PRODUCTION != undefined;
 
 // make this a file logger for production
-export const LOGGER: Logger = IS_PRODUCTION ? new FileLogger(process.env.LOG_FILE ?? "/home/sharpdev/chuck.log") : new ConsoleLogger();
+export const LOGGER: Logger = IS_PRODUCTION ? new FileLogger(process.env.LOG_FILE ?? "./crosschat.log") : new ConsoleLogger();
 
 export const BOT_TOKEN: string = process.env.BOT_TOKEN || "";
 

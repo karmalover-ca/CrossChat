@@ -1,5 +1,5 @@
 import { Message, TextChannel, WebhookClient } from "discord.js";
-import { WEBHOOKS, GUILDS } from "../constants";
+import { WEBHOOKS, GUILDS, LOGGER } from "../constants";
 
 export interface WhMessages {
     messageId: string;
@@ -7,7 +7,7 @@ export interface WhMessages {
 }
 export interface MessageCache {
     origin: string;
-    whMessages: [...WhMessages[]]
+    whMessages: [...WhMessages[]];
 }
 
 export const messageCache: MessageCache[] = [];
@@ -36,12 +36,14 @@ const messageHandler = async (message: Message) => {
     //if(!channelWhUrl) return;
 
     if(message.mentions.everyone) {
-        cleanMessage = cleanMessage.replace("@", "(@)")
+        cleanMessage = cleanMessage.replace("@", "(@)");
     }
+
+    cleanMessage = cleanMessage.replace("<@", "<-@");
 
     if(message.attachments.size > 0) {
         message.attachments.forEach(function (attachment) {
-            cleanMessage = cleanMessage + ` ${attachment.url}`
+            cleanMessage = cleanMessage + ` ${attachment.url}`;
         });
     }
     
@@ -71,14 +73,14 @@ const sendWebhooks = (guildPrefix: string, displayName: string, username: string
                 username: `${guildPrefix} ${displayName} (${username}#${discriminator})`,
                 avatarURL: avatarURL,
                 content: message,
-            }).then(apiMessage => whMessageIds.push({messageId: apiMessage.id, webhookUrl: wh}));
+            }).then(apiMessage => whMessageIds.push({messageId: apiMessage.id, webhookUrl: wh})).catch(LOGGER.error);
         }
     })).then(() => {
         messageCache.push({
             origin: messageId,
-            whMessages: whMessageIds
+            whMessages: whMessageIds,
         });
-    });
+    }).catch(LOGGER.error);
 }
 
 export { messageHandler };

@@ -21,7 +21,7 @@ const updateHandler = (oldMessage: Message | PartialMessage, newMessage: Message
 
     if(newMessage.attachments.size > 0) {
         newMessage.attachments.forEach(function (attachment) {
-            cleanMessage = cleanMessage + ` ${attachment.url}`
+            cleanMessage = cleanMessage + ` ${attachment.url}`;
         });
     }
 
@@ -30,8 +30,6 @@ const updateHandler = (oldMessage: Message | PartialMessage, newMessage: Message
             cleanMessage = `*(sticker) :${newMessage.stickers.first()?.name}:*`;
         }
     }
-
-    cleanMessage = cleanMessage + " *(edited)*";
 
     if(cleanMessage.length > 2000) {
         newMessage.reply(`${newMessage.member?.user} your edited message is too long\nIt must be 1990 charecters or lower`);
